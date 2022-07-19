@@ -185,18 +185,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: spa-dark
+  name: spa-dark
 spec:
-replicas: 1
-selector:
+  replicas: 1
+  selector:
     matchLabels:
-    app: spa-dark
-template:
+      app: spa-dark
+  template:
     metadata:
-    labels:
+      labels:
         app: spa-dark
     spec:
-    containers:
+      containers:
         - name: spa-dark
           image: ghcr.io/f5devcentral/spa-demo-app-spa:sha-c02c49a
           ports:
@@ -205,12 +205,12 @@ template:
 apiVersion: v1
 kind: Service
 metadata:
-name: spa-dark
+  name: spa-dark
 spec:
-ports:
+  ports:
     - port: 80
       targetPort: 80
       protocol: TCP
       name: http
-selector:
+  selector:
     app: spa-dark
