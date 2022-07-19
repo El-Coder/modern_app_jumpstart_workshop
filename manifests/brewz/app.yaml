@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -155,7 +154,7 @@ kind: Deployment
 metadata:
   name: inventory
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: inventory
