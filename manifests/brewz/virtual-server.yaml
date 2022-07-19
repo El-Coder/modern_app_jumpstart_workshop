@@ -6,6 +6,9 @@ metadata:
 spec:
   host: brewz.f5demo.com
   upstreams:
+    - name: spa-dark
+      service: spa-dark
+      port: 80
     - name: spa
       service: spa
       port: 80
@@ -42,3 +45,10 @@ spec:
         proxy:
           upstream: api
           rewritePath: /images
+    - path: /
+      matches:
+       - conditions:
+           - cookie: "app_version"
+             value: "dark"
+         action:
+           pass: spa-dark    
